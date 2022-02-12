@@ -5,8 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        FontSize="18"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="250" Width="300"
+        >
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Margin" Value="5, 0"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsValid}" Value="True">
+                    <Setter Property="BorderBrush" Value="Green" />
+                </DataTrigger>
+
+                <DataTrigger Binding="{Binding IsValid}" Value="False">
+                    <Setter Property="BorderBrush" Value="Red" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
-        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="5"
+                    Grid.IsSharedSizeScope="True">
+            <TextBlock Margin="5" Text="A^2 + B^2 = C^2:"/>
+
+            <!-- A -->
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Text="A:"/>
+                <TextBox Grid.Column="1" Text="{Binding A, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+
+            <!-- B -->
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Text="B:"/>
+                <TextBox Grid.Column="1" Text="{Binding B, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+
+
+            <!-- C -->
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Label"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Text="C:"/>
+                <TextBox Grid.Column="1" Text="{Binding C, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+
+        </StackPanel>
     </Grid>
 </Window>
