@@ -72,7 +72,9 @@
                 return false;
             }
 
-            if(numberA * numberA + numberB * numberB == numberC * numberC)
+            if(numberA * numberA + numberB * numberB == numberC * numberC
+                || numberA * numberA + numberC * numberC == numberB * numberB
+                || numberC * numberC + numberB * numberB == numberA * numberA)
             {
                 return true;
             }
