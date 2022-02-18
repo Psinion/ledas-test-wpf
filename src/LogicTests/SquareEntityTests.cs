@@ -4,7 +4,7 @@ using Core;
 
 namespace LogicTests
 {
-    public class MainViewModelTests
+    public class SquareEntityTests
     {
         private static object[] squareConditionCases = {
             new object[] {
@@ -31,8 +31,8 @@ namespace LogicTests
         [Test]
         public void SquareConditionTests(string a, string b, string c, bool excepted)
         {
-            MainViewModel mVM = new MainViewModel(a, b, c);
-            Assert.AreEqual(excepted, mVM.CheckSquareCondition());
+            SquareEntity entity = new SquareEntity(a, b, c);
+            Assert.AreEqual(excepted, entity.CheckSquareCondition());
         }
     }
 }

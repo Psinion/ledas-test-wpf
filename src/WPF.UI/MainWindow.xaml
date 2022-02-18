@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         FontSize="18"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="250" Width="300"
+        Title="MainWindow" Height="325" Width="300"
         >
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Width" Value="200"/>
             <Setter Property="Margin" Value="5, 0"/>
             <Style.Triggers>
-                <DataTrigger Binding="{Binding IsValid}" Value="True">
+                <DataTrigger Binding="{Binding SquareModel.IsValid}" Value="True">
                     <Setter Property="BorderBrush" Value="Green" />
                 </DataTrigger>
 
-                <DataTrigger Binding="{Binding IsValid}" Value="False">
+                <DataTrigger Binding="{Binding SquareModel.IsValid}" Value="False">
                     <Setter Property="BorderBrush" Value="Red" />
                 </DataTrigger>
             </Style.Triggers>
@@ -38,7 +38,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" Text="A:"/>
-                <TextBox Grid.Column="1" Text="{Binding A, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Column="1" Text="{Binding SquareModel.A, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
 
             <!-- B -->
@@ -49,7 +49,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" Text="B:"/>
-                <TextBox Grid.Column="1" Text="{Binding B, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Column="1" Text="{Binding SquareModel.B, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
 
 
@@ -61,8 +61,14 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" Text="C:"/>
-                <TextBox Grid.Column="1" Text="{Binding C, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Column="1" Text="{Binding SquareModel.C, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
+
+            <Button Margin="10" Height="40" Content="Сохранить"
+                    Command="{Binding SaveCommand}"></Button>
+
+            <Button Margin="10" Height="40" Content="Загрузить"
+                    Command="{Binding OpenCommand}"></Button>
 
         </StackPanel>
     </Grid>
