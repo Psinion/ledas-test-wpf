@@ -3,12 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF.UI", "WPF.UI\WPF.UI.csproj", "{40FD4F26-477A-4A7A-AF8C-2572CAC3E250}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF.UI", "WPF.UI\WPF.UI.csproj", "{40FD4F26-477A-4A7A-AF8C-2572CAC3E250}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B95D83A8-065E-41AD-9CD3-788912491783} = {B95D83A8-065E-41AD-9CD3-788912491783}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B95D83A8-065E-41AD-9CD3-788912491783}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{B95D83A8-065E-41AD-9CD3-788912491783}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicTests", "LogicTests\LogicTests.csproj", "{0A70F114-FA82-47DA-818C-B2210CCA0C06}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B95D83A8-065E-41AD-9CD3-788912491783} = {B95D83A8-065E-41AD-9CD3-788912491783}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +29,10 @@ Global
 		{B95D83A8-065E-41AD-9CD3-788912491783}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B95D83A8-065E-41AD-9CD3-788912491783}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B95D83A8-065E-41AD-9CD3-788912491783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A70F114-FA82-47DA-818C-B2210CCA0C06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A70F114-FA82-47DA-818C-B2210CCA0C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A70F114-FA82-47DA-818C-B2210CCA0C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A70F114-FA82-47DA-818C-B2210CCA0C06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

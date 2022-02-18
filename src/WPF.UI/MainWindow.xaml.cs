@@ -1,4 +1,4 @@
-﻿using Core.ViewModels;
+﻿using Core;
 using System.Windows;
 
 namespace WPF.UI

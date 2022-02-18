@@ -1,4 +1,4 @@
-﻿namespace Core.ViewModels
+﻿namespace Core
 {
     public class MainViewModel : BaseViewModel
     {
@@ -59,22 +59,57 @@
 
         #endregion
 
-        #region Private Methods
+        #region Constructor
 
-        private bool CheckSquareCondition()
+        public MainViewModel() : this("", "", "") { }
+
+        public MainViewModel(string a, string b, string c)
+        {
+            A = a;
+            B = b;
+            C = c;
+        }
+
+        #endregion
+
+        #region Public Methods 
+
+        public bool CheckSquareCondition()
         {
             float numberA, numberB, numberC;
-            if (!float.TryParse(a, out numberA) || 
-                !float.TryParse(b, out numberB) || 
-                !float.TryParse(c, out numberC)
+
+            if (!float.TryParse(a, out numberA) ||
+                !float.TryParse(b, out numberB) ||
+                !float.TryParse(c, out numberC) ||
+                !float.IsNormal(numberA) ||
+                !float.IsNormal(numberB) ||
+                !float.IsNormal(numberC)
                 )
             {
                 return false;
             }
 
-            if(numberA * numberA + numberB * numberB == numberC * numberC
-                || numberA * numberA + numberC * numberC == numberB * numberB
-                || numberC * numberC + numberB * numberB == numberA * numberA)
+            float sqA = numberA * numberA;
+            float sqB = numberB * numberB;
+            float sqC = numberC * numberC;
+            float sumAB = sqA + sqB;
+            float sumAC = sqA + sqC;
+            float sumBC = sqB + sqC;
+
+            if(!float.IsNormal(sqA) ||
+               !float.IsNormal(sqB) ||
+               !float.IsNormal(sqC) ||
+               !float.IsNormal(sumAB) ||
+               !float.IsNormal(sumAC) ||
+               !float.IsNormal(sumBC)
+                )
+            {
+                return false;
+            }
+
+            if (sumAB == sqC ||
+                sumAC == sqB ||
+                sumBC == sqA)
             {
                 return true;
             }
@@ -83,7 +118,5 @@
         }
 
         #endregion
-
-
     }
 }
